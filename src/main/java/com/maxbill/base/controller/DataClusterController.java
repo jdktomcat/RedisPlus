@@ -416,8 +416,12 @@ public class DataClusterController {
             if (null != cluster) {
                 FileChooser fileChooser = new FileChooser();
                 File file = fileChooser.showOpenDialog(Desktop.getRootStage());
-                ClusterUtil.recoveKey(cluster, FileUtil.readFileToString(file.toString()));
-                return getOkByJson("还原数据成功");
+                if (null != file) {
+                    ClusterUtil.recoveKey(cluster, FileUtil.readFileToString(file.toString()));
+                    return getOkByJson("还原数据成功");
+                } else {
+                    return getNoByJson("取消还原操作");
+                }
             } else {
                 return disconnect();
             }

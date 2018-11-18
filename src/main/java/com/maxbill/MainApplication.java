@@ -4,7 +4,6 @@ import com.maxbill.core.desktop.Desktop;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
 @MapperScan("com.maxbill.base.dao")
 public class MainApplication extends Desktop {
@@ -13,5 +12,4 @@ public class MainApplication extends Desktop {
         //System.setProperty("javafx.preloader", "com.maxbill.core.desktop.AppGuide");
         launch(args);
     }
-
 }

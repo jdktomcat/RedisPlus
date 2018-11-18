@@ -234,7 +234,7 @@ function backupData() {
     }
     hideZtreeMenu();
     layer.msg("数据备份任务正在后台执行...");
-    var json = dataSinglesRouter.backupsKey(currNode2.index, currNode2.pattern);
+    var json = dataSinglesRouter.backupKey(currNode2.index, currNode2.pattern);
     var data = JSON.parse(json);
     if (data.code === 200) {
         layer.msg(data.msgs);
