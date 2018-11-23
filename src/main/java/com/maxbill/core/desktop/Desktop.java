@@ -16,7 +16,6 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,13 +31,12 @@ import javafx.stage.StageStyle;
 import netscape.javascript.JSObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 
 import static com.maxbill.tool.ItemUtil.*;
 
-@Component
+
 public class Desktop extends Application {
 
     private double x = 0.00;
@@ -83,7 +81,7 @@ public class Desktop extends Application {
 
 
     @Override
-    public void start(Stage winStage) throws Exception {
+    public void start(Stage winStage) {
 
         //设置窗口信息
         winStage.centerOnScreen();
@@ -118,7 +116,7 @@ public class Desktop extends Application {
     /**
      * 窗口主体
      */
-    public BorderPane getMainView(Stage winStage) throws Exception {
+    private BorderPane getMainView(Stage winStage) {
         BorderPane mainView = new BorderPane();
         mainView.setId("main-view");
         mainView.getStylesheets().add(DESKTOP_STYLE);
@@ -132,7 +130,7 @@ public class Desktop extends Application {
     /**
      * 顶部标题栏
      */
-    public GridPane getTopsView(Stage winStage) {
+    private GridPane getTopsView(Stage winStage) {
 
         topsView = new GridPane();
         topsView.setId("tops-view");
@@ -188,28 +186,9 @@ public class Desktop extends Application {
 
 
     /**
-     * 开始窗体
-     */
-    public VBox getRunView() {
-        VBox runBox = new VBox();
-        //启动图片
-        Label imageLable = new Label();
-        imageLable.setPrefSize(1000, 550);
-        Image image = new Image("/image/app03.jpg", 1000, 550, false, false);
-        imageLable.setGraphic(new ImageView(image));
-        //加载提醒
-        ProgressBar progressBar = new ProgressBar();
-        progressBar.setProgress(-1.0f);
-        runBox.getChildren().addAll(imageLable);
-        runBox.getChildren().addAll(progressBar);
-        return runBox;
-    }
-
-
-    /**
      * 内容窗体
      */
-    public WebView getBodyView() {
+    private WebView getBodyView() {
 
         webView = new WebView();
         webView.setCache(false);
@@ -230,13 +209,13 @@ public class Desktop extends Application {
         woker.stateProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Worker.State.SUCCEEDED) {
                 JSObject jsObject = (JSObject) webEngine.executeScript("window");
+                jsObject.setMember("confRouter", confController);
                 jsObject.setMember("otherRouter", otherController);
                 jsObject.setMember("connectRouter", connectController);
                 jsObject.setMember("dataSinglesRouter", dataSinglesController);
                 jsObject.setMember("dataClusterRouter", dataClusterController);
                 jsObject.setMember("infoSinglesRouter", infoSinglesController);
                 jsObject.setMember("infoClusterRouter", infoClusterController);
-                jsObject.setMember("confRouter", confController);
             }
         });
 
@@ -247,9 +226,6 @@ public class Desktop extends Application {
 
         //控制台监听事件
         WebConsoleListener.setDefaultListener((WebView webView, String message, int lineNumber, String sourceId) -> {
-            if (message.contains("ReferenceError: Can't find variable")) {
-                webEngine.reload();
-            }
             System.out.println("Console: [" + sourceId + ":" + lineNumber + "] " + message);
         });
 
@@ -260,7 +236,7 @@ public class Desktop extends Application {
     /**
      * 底部窗体
      */
-    public GridPane getEndsView() throws Exception {
+    private GridPane getEndsView() {
 
         GridPane endsView = new GridPane();
         endsView.setId("ends-view");
@@ -298,6 +274,7 @@ public class Desktop extends Application {
         endOrder.setAlignment(Pos.CENTER_RIGHT);
         endImage.setGraphic(new ImageView(new Image(DESKTOP_STATUS_IMAGE_NO)));
         GridPane.setHgrow(endTitle, Priority.ALWAYS);
+
         return endsView;
     }
 
@@ -305,7 +282,7 @@ public class Desktop extends Application {
     /**
      * 监听窗口属性事件
      */
-    public void doWinStage(Stage winStage) {
+    private void doWinStage(Stage winStage) {
         winStage.xProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
             if (newValue != null && !isMax) {
                 x = newValue.doubleValue();
@@ -332,7 +309,7 @@ public class Desktop extends Application {
     /**
      * 监听窗口操作事件
      */
-    public void doWinState(Stage winStage, BorderPane mainView) {
+    private void doWinState(Stage winStage, BorderPane mainView) {
         //监听窗口移动后事件
         mainView.setOnMouseMoved((MouseEvent event) -> {
             event.consume();
@@ -466,7 +443,6 @@ public class Desktop extends Application {
         }
     }
 
-
     /**
      * 监听窗口关闭事件
      */
@@ -501,7 +477,6 @@ public class Desktop extends Application {
         webEngine.load(utl);
     }
 
-
     public static Stage getRootStage() {
         return stage;
     }
@@ -509,7 +484,6 @@ public class Desktop extends Application {
     public static GridPane getTopsView() {
         return topsView;
     }
-
 
     private void initWebObject() {
         confController = context.getBean(ConfController.class);

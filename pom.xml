@@ -144,6 +144,8 @@
                 <configuration>
                     <!--启动类-->
                     <mainClass>com.maxbill.MainApplication</mainClass>
+                    <!--启动引导-->
+                    <!--<preLoader>com.maxbill.core.desktop.AppGuide</preLoader>-->
                     <!--运行文件名-->
                     <appName>RedisPlus</appName>
                     <!--启用自定义打包配置-->
@@ -153,26 +155,28 @@
                     <!--桌面图标-->
                     <needShortcut>true</needShortcut>
                     <!--JVM参数-->
-                    <!--<jvmArgs>-->
-                    <!--<jvmArg>-Xms50m</jvmArg>-->
-                    <!--<jvmArg>-Xmx100m</jvmArg>-->
-                    <!--<jvmArg>-Dfile.encoding=UTF-8</jvmArg>-->
-                    <!--<jvmArg>-XX:-UseGCOverheadLimit</jvmArg>-->
-                    <!--<jvmArg>-Dsun.jnu.encoding=UTF-8</jvmArg>-->
-                    <!--<jvmArg>-Dvisualvm.display.name=RedisPlus</jvmArg>-->
-                    <!--</jvmArgs>-->
+                    <jvmArgs>
+                        <jvmArg>-Xms50m</jvmArg>
+                        <jvmArg>-Xmx100m</jvmArg>
+                        <jvmArg>-Dfile.encoding=UTF-8</jvmArg>
+                        <jvmArg>-XX:-UseGCOverheadLimit</jvmArg>
+                        <jvmArg>-Dsun.jnu.encoding=UTF-8</jvmArg>
+                        <jvmArg>-Dvisualvm.display.name=RedisPlus</jvmArg>
+                        <argument>-Dapple.laf.useScreenMenuBar=true</argument>
+                    </jvmArgs>
                     <!--JVM启动参数-->
-                    <!--<launcherArguments>-->
-                    <!--<launcherArgument>-Xms50m</launcherArgument>-->
-                    <!--<launcherArgument>-Xmx100m</launcherArgument>-->
-                    <!--<launcherArgument>-Dfile.encoding=UTF-8</launcherArgument>-->
-                    <!--<launcherArgument>-XX:-UseGCOverheadLimit</launcherArgument>-->
-                    <!--<launcherArgument>-Dsun.jnu.encoding=UTF-8</launcherArgument>-->
-                    <!--<launcherArgument>-Dvisualvm.display.name=RedisPlus</launcherArgument>-->
-                    <!--</launcherArguments>-->
+                    <launcherArguments>
+                        <launcherArgument>-Xms50m</launcherArgument>
+                        <launcherArgument>-Xmx100m</launcherArgument>
+                        <launcherArgument>-Dfile.encoding=UTF-8</launcherArgument>
+                        <launcherArgument>-XX:-UseGCOverheadLimit</launcherArgument>
+                        <launcherArgument>-Dsun.jnu.encoding=UTF-8</launcherArgument>
+                        <launcherArgument>-Dvisualvm.display.name=RedisPlus</launcherArgument>
+                    </launcherArguments>
                     <!--JAVA启动参数-->
                     <runJavaParameter>
-                        <!-- -Xms50m -Xmn1g -Xss228k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -->
+                        -Xms50m
+                        <!-- -Xms50m -Xmn1g -Xss228k -XX:+UseParallelGC -XX:ParallelGCThreads=20-->
                     </runJavaParameter>
                     <!--APP启动参数-->
                     <runAppParameter>
