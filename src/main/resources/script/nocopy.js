@@ -7,10 +7,10 @@ document.onselectstart = function () {
 
 //复制到剪贴板
 function copyToClipboard(text) {
-    if (text.indexOf('-') !== -1) {
-        var arr = text.split('-');
-        text = arr[0] + arr[1];
-    }
+    // if (text.indexOf('-') !== -1) {
+    //     var arr = text.split('-');
+    //     text = arr[0] + arr[1];
+    // }
     var textArea = document.createElement("textarea");
     textArea.style.position = 'fixed';
     textArea.style.top = '0';

@@ -321,7 +321,7 @@ public class DataSinglesController {
             Jedis jedis = getCurrentJedisObject();
             if (null != jedis) {
                 String baseUrl = System.getProperty("user.home");
-                String fileName = "RedisPlus-" + DateUtil.formatDate(new Date(), DateUtil.DATE_STR_FILE) + ".bak";
+                String fileName = "redisplus-dbdata-" + DateUtil.formatDate(new Date(), DateUtil.DATE_STR_FILE) + ".bak";
                 String filePath = baseUrl + "/" + fileName;
                 boolean flag = FileUtil.writeStringToFile(filePath, RedisUtil.backupKey(jedis, index, pattern));
                 if (flag) {

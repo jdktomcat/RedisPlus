@@ -231,6 +231,37 @@ function closeConnect(id) {
     return result;
 }
 
+/**
+ * 导出连接
+ */
+function expConnectData() {
+    layer.msg("备份连接任务正在后台执行...");
+    var json = connectRouter.backupConnect();
+    var data = JSON.parse(json);
+    if (data.code === 200) {
+        layer.msg(data.msgs);
+    } else {
+        layer.alert(data.msgs, {
+            skin: 'layui-layer-lan',
+            closeBtn: 0
+        });
+    }
+}
+
+
+/**
+ * 导入连接
+ */
+function impConnectData() {
+    layer.msg("还原连接任务正在后台执行...");
+    var json = connectRouter.recoveConnect();
+    var data = JSON.parse(json);
+    layer.msg(data.msgs);
+    getConnectData();
+}
+
+
+
 
 
 

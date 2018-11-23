@@ -3,13 +3,20 @@ package com.maxbill.base.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.maxbill.base.bean.Connect;
+import com.maxbill.base.bean.KeyBean;
 import com.maxbill.base.service.DataService;
+import com.maxbill.core.desktop.Desktop;
 import com.maxbill.tool.*;
+import javafx.stage.FileChooser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
+
+import java.io.File;
+import java.util.Date;
+import java.util.List;
 
 import static com.maxbill.base.bean.ResultInfo.*;
 import static com.maxbill.core.desktop.Desktop.setEndsViewImage;
@@ -220,6 +227,54 @@ public class ConnectController {
             }
         } else {
             return 0;
+        }
+    }
+
+
+    public String backupConnect() {
+        try {
+            String baseUrl = System.getProperty("user.home");
+            String fileName = "redisplus-connect-" + DateUtil.formatDate(new Date(), DateUtil.DATE_STR_FILE) + ".bak";
+            String filePath = baseUrl + "/" + fileName;
+            List<Connect> connectList = this.dataService.selectConnect();
+            if (null == connectList || connectList.isEmpty()) {
+                return getNoByJson("暂无需要备的份数据");
+            }
+            StringBuffer dataBuffer = new StringBuffer("");
+            for (Connect connect : connectList) {
+                dataBuffer.append(JSON.toJSONString(connect));
+                dataBuffer.append("\r\n");
+            }
+            boolean flag = FileUtil.writeStringToFile(filePath, dataBuffer.toString());
+            if (flag) {
+                return getOkByJson("数据成功备份至当前用户目录中");
+            } else {
+                return getNoByJson("备份数据失败");
+            }
+        } catch (Exception e) {
+            return exception(e);
+        }
+    }
+
+
+    public String recoveConnect() {
+        try {
+            FileChooser fileChooser = new FileChooser();
+            File file = fileChooser.showOpenDialog(Desktop.getRootStage());
+            if (null != file) {
+                String[] jsons = FileUtil.readFileToString(file.toString()).split("\r\n", -1);
+                for (String json : jsons) {
+                    Connect connect = JSON.parseObject(json, Connect.class);
+                    if (null != connect) {
+                        this.dataService.insertConnect(connect);
+                    }
+                }
+                return getOkByJson("还原数据成功");
+            } else {
+                return getNoByJson("取消还原操作");
+            }
+        } catch (Exception e) {
+            return exception(e);
         }
     }
 

@@ -386,7 +386,7 @@ public class DataClusterController {
                 Map<String, JedisPool> clusterNodes = cluster.getClusterNodes();
                 StringBuffer dataBuffer = new StringBuffer("");
                 String baseUrl = System.getProperty("user.home");
-                String fileName = "RedisPlus-" + DateUtil.formatDate(new Date(), DateUtil.DATE_STR_FILE) + ".bak";
+                String fileName = "redisplus-dbdata-" + DateUtil.formatDate(new Date(), DateUtil.DATE_STR_FILE) + ".bak";
                 String filePath = baseUrl + "/" + fileName;
                 for (String nk : clusterNodes.keySet()) {
                     if (masterNode.keySet().contains(nk)) {
