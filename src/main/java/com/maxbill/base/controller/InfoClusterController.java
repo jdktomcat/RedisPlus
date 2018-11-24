@@ -56,10 +56,10 @@ public class InfoClusterController {
             if (null != jedis) {
                 RedisInfo redisInfo = getRedisInfo(jedis);
                 String[] memory = redisInfo.getMemory().split("\n");
-                String value01 = StringUtil.getValueString(":", memory[2]).replace("\r", "");
-                String value02 = StringUtil.getValueString(":", memory[5]).replace("\r", "");
-                resultMap.put("value01", Float.valueOf(value01.substring(0, value01.length() - 1)));
-                resultMap.put("value02", Float.valueOf(value02.substring(0, value02.length() - 1)));
+                String value01 = StringUtil.getValueString(":", memory[1]).replace("\r", "");
+                String value02 = StringUtil.getValueString(":", memory[4]).replace("\r", "");
+                resultMap.put("value01", (float) (Math.round((Float.valueOf(value01) / 1048576) * 100)) / 100);
+                resultMap.put("value02", (float) (Math.round((Float.valueOf(value02) / 1048576) * 100)) / 100);
             } else {
                 resultMap.put("value01", 0);
                 resultMap.put("value02", 0);

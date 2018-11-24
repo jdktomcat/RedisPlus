@@ -3,12 +3,9 @@ package com.maxbill.tool;
 import com.maxbill.base.bean.Connect;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
-import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.maxbill.tool.StringUtil.FLAG_COLON;
 
 public class DataUtil {
 

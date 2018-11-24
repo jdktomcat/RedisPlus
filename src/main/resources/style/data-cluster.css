@@ -96,10 +96,13 @@
 }
 
 .key-tool-abtn {
+    height: 40px;
+    color: springgreen;
     background-color: #638CB7;
 }
 
 .key-tool-dbtn {
+    height: 40px;
     background-color: #4777A7;
 }
 

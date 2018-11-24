@@ -1,7 +1,6 @@
 package com.maxbill.tool;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.maxbill.base.bean.KeyBean;
 
 import java.util.regex.Matcher;
@@ -14,8 +13,8 @@ public class JsonUtil {
         try {
             if (!json.equals("")) {
                 KeyBean keyBean = JSON.parseObject(json, KeyBean.class);
-                JSONObject jsonObj = JSON.parseObject(json);
-                keyBean.setKey(getUnicodeToString(jsonObj.getString("key")));
+                //JSONObject jsonObj = JSON.parseObject(json);
+                //keyBean.setKey(getUnicodeToString(jsonObj.getString("key")));
                 return keyBean;
             } else {
                 return null;

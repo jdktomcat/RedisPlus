@@ -90,7 +90,7 @@ function showCharts1() {
             }
         },
         tooltip: {
-            valueSuffix: ' KB',
+            valueSuffix: ' MB',
             crosshairs: true,
             xDateFormat: '%Y-%m-%d %H:%M:%S'
         },

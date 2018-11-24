@@ -57,15 +57,16 @@ public class InfoSinglesController {
             if (null != jedis) {
                 RedisInfo redisInfo = getRedisInfo(jedis);
                 String[] memory = redisInfo.getMemory().split("\n");
-                String val01 = StringUtil.getValueString(":", memory[2]).replace("\r", "");
-                String val02 = StringUtil.getValueString(":", memory[5]).replace("\r", "");
-                resultMap.put("val01", Float.valueOf(val01.substring(0, val01.length() - 1)));
-                resultMap.put("val02", Float.valueOf(val02.substring(0, val02.length() - 1)));
+                String val01 = StringUtil.getValueString(":", memory[1]).replace("\r", "");
+                String val02 = StringUtil.getValueString(":", memory[4]).replace("\r", "");
+                resultMap.put("val01", (float) (Math.round((Float.valueOf(val01) / 1048576) * 100)) / 100);
+                resultMap.put("val02", (float) (Math.round((Float.valueOf(val02) / 1048576) * 100)) / 100);
             } else {
                 resultMap.put("val01", 0);
                 resultMap.put("val02", 0);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             resultMap.put("val01", 0);
             resultMap.put("val02", 0);
         }

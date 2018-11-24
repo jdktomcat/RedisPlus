@@ -10,9 +10,11 @@ public class MailUtil {
 
     private static final String MAILTIPS = "REDIS-软件使用反馈";
     private static final String FROMUSER = "vau.ting@qq.com";
-    private static final String LOOKUSER = "maxbill1993@qq.com";
+    private static final String LOOKUSER = "maxbill1993@163.com";
 
-    //发送邮件
+    /**
+     * 发送邮件
+     */
     public static boolean sendMail(String user, String msgs) {
         try {
             if (StringUtils.isEmpty(user)) {
