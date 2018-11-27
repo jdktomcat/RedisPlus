@@ -6,6 +6,11 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+/**
+ * 数据源配置
+ *
+ * @author jdktomcat
+ */
 @Configuration
 public class DruidConfig {
 
@@ -19,8 +24,6 @@ public class DruidConfig {
         datasource.setTestOnReturn(false);
         //发布路径
         datasource.setUrl("jdbc:derby:" + baseUrl + "/.redis_plus/data;create=true");
-        //开发路径
-        //datasource.setUrl("jdbc:derby:" + baseUrl + "/Desktop/data;create=true");
         datasource.setDriverClassName("org.apache.derby.jdbc.EmbeddedDriver");
         return datasource;
     }

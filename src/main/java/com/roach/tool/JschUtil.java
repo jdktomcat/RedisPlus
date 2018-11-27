@@ -6,9 +6,15 @@ import com.roach.base.bean.Connect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * SSH工具类
+ *
+ * @author jdktomcat
+ */
 public class JschUtil {
 
-    static Logger log = LoggerFactory.getLogger("JschUtil");
+    private static Logger log = LoggerFactory.getLogger("JschUtil");
+    
     private static Session session;
 
     public static void openSSH(Connect connect) throws Exception {
@@ -22,7 +28,7 @@ public class JschUtil {
         log.info(connect.getRhost() + ":" + aport + " -> " + connect.getShost() + ":" + connect.getSport());
     }
 
-    public static void closeSSH() {
+    private static void closeSSH() {
         try {
             if (null != session) {
                 session.disconnect();

@@ -1,10 +1,11 @@
 package com.roach.tool;
 
 /**
- * @author roach
+ * 资源条目工具类
+ *
+ * @author jdktomcat
  */
 public class ItemUtil {
-
     public static final String SETTING_THEME_COLOR = "theme-color";
     public static final String DESKTOP_APP_NAME = "RedisPlus";
     public static final String DESKTOP_APP_LOGO = "/image/app02.png";

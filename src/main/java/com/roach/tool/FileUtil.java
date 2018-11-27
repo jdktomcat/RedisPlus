@@ -2,9 +2,12 @@ package com.roach.tool;
 
 import java.io.*;
 
+/**
+ * 文件工具类
+ *
+ * @author jdktomcat
+ */
 public class FileUtil {
-
-
     public static boolean writeStringToFile(String filePath, String data) {
         PrintStream printStream = null;
         try {

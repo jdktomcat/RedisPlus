@@ -7,6 +7,11 @@ import redis.clients.jedis.JedisCluster;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 数据工具类
+ *
+ * @author jdktomcat
+ */
 public class DataUtil {
 
     private static Map<String, Object> confMap = new HashMap();

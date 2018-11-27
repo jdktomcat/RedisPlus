@@ -6,11 +6,16 @@ import org.springframework.util.StringUtils;
 
 import java.util.Properties;
 
+/**
+ * 邮箱工具类
+ *
+ * @author jdktomcat
+ */
 public class MailUtil {
 
-    private static final String MAILTIPS = "REDIS-软件使用反馈";
-    private static final String FROMUSER = "vau.ting@qq.com";
-    private static final String LOOKUSER = "maxbill1993@163.com";
+    private static final String MAIL_TIPS = "REDIS-软件使用反馈";
+    private static final String FROM_USER = "jdktomcat@163.com";
+    private static final String LOOK_USER = "tqvivo@gmail.com";
 
     /**
      * 发送邮件
@@ -23,9 +28,9 @@ public class MailUtil {
                 user = "[" + user + "]";
             }
             SimpleMailMessage mainMessage = new SimpleMailMessage();
-            mainMessage.setFrom(FROMUSER);
-            mainMessage.setTo(LOOKUSER);
-            mainMessage.setSubject(MAILTIPS + user);
+            mainMessage.setFrom(FROM_USER);
+            mainMessage.setTo(LOOK_USER);
+            mainMessage.setSubject(MAIL_TIPS + user);
             mainMessage.setText(msgs);
             getJavaMailSender().send(mainMessage);
             return true;

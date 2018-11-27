@@ -2,6 +2,11 @@ package com.roach.tool;
 
 import java.util.UUID;
 
+/**
+ * 唯一键生成器
+ *
+ * @author jdktomcat
+ */
 public class KeyUtil {
 
     /**

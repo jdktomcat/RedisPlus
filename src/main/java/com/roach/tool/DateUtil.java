@@ -5,10 +5,9 @@ import java.util.Date;
 
 
 /**
- * @功能 时间工具
- * @作者 MaxBill
- * @时间 2018年7月16日
- * @邮箱 maxbill1993@163.com
+ * 时间工具
+ *
+ * @author jdktomcat
  */
 public class DateUtil {
 
@@ -20,8 +19,7 @@ public class DateUtil {
 
     /**
      * ----------------------日期格式化操作----------------------
-     **/
-
+     */
     public static String formatDate(Date date) {
         SimpleDateFormat format = new SimpleDateFormat(DATE_STR);
         return format.format(date);
@@ -40,8 +38,7 @@ public class DateUtil {
 
     /**
      * ----------------------日期转换操作----------------------
-     **/
-
+     */
     public static String timeStampToDate(long timeStamp, String formatStr) {
         Date date = new Date(timeStamp);
         SimpleDateFormat sd = new SimpleDateFormat(formatStr);

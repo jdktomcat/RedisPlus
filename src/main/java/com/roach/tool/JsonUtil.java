@@ -6,15 +6,17 @@ import com.roach.base.bean.KeyBean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * JSON 工具类
+ *
+ * @author jdktomcat
+ */
 public class JsonUtil {
 
     public static KeyBean parseKeyBeanObject(String json) {
         try {
             if (!json.equals("")) {
                 KeyBean keyBean = JSON.parseObject(json, KeyBean.class);
-                //JSONObject jsonObj = JSON.parseObject(json);
-                //keyBean.setKey(getUnicodeToString(jsonObj.getString("key")));
                 return keyBean;
             } else {
                 return null;

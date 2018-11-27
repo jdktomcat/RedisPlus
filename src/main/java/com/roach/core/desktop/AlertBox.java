@@ -24,6 +24,11 @@ import netscape.javascript.JSObject;
 
 import static com.roach.tool.ItemUtil.*;
 
+/**
+ * 警告窗
+ *
+ * @author jdktomcat
+ */
 public class AlertBox {
 
     public void display(String title) {

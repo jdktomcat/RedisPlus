@@ -6,6 +6,11 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+/**
+ * 启动引导
+ *
+ * @author jdktomcat
+ */
 public class AppGuide extends Preloader {
 
     @Override

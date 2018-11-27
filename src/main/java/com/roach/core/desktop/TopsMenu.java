@@ -5,6 +5,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * 菜单栏
+ *
+ * @author jdktomcat
+ */
 public class TopsMenu extends ContextMenu {
 
     private static TopsMenu topsMenu = null;
@@ -73,6 +78,4 @@ public class TopsMenu extends ContextMenu {
         topsMenu.setStyle(styleBuffer.toString());
         return topsMenu;
     }
-
-
 }

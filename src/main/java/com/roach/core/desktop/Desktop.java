@@ -39,7 +39,7 @@ import static com.roach.tool.ItemUtil.*;
 /**
  * 主页面类
  *
- * @author roach
+ * @author jdktomcat
  */
 public class Desktop extends Application {
 

@@ -5,7 +5,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author roach
+ * 程序主入口
+ *
+ * @author jdktomcat
  */
 @SpringBootApplication
 @MapperScan("com.roach.base.dao")
