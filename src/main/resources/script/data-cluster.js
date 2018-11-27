@@ -221,7 +221,7 @@ function backupData() {
 function recoveData() {
     hideZtreeMenu();
     layer.msg("数据还原任务正在后台执行...");
-    var json = dataClusterRouter.recoveKey();
+    var json = dataClusterRouter.recoveryKey();
     var data = JSON.parse(json);
     layer.msg(data.msgs);
     initDbTree();

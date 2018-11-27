@@ -232,7 +232,7 @@ public class RedisUtil {
     /**
      * 还原数据
      */
-    public static void recoveKey(Jedis jedis, int index, String jsonStr) {
+    public static void recoveryKey(Jedis jedis, int index, String jsonStr) {
         //Pipeline pipeline = jedis.pipelined();
         // pipeline.select(index);
         jedis.select(index);

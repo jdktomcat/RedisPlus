@@ -254,7 +254,7 @@ function recoveData() {
     }
     hideZtreeMenu();
     layer.msg("数据还原任务正在后台执行...");
-    var json = dataSinglesRouter.recoveKey(currNode2.index);
+    var json = dataSinglesRouter.recoveryKey(currNode2.index);
     var data = JSON.parse(json);
     layer.msg(data.msgs);
     initDbTree();

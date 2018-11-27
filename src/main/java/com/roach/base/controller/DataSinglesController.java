@@ -18,6 +18,11 @@ import java.util.List;
 import static com.roach.base.bean.ResultInfo.*;
 import static com.roach.tool.DataUtil.getCurrentJedisObject;
 
+/**
+ * 数据绑定控制类
+ *
+ * @author jdktomcat
+ */
 @Component
 public class DataSinglesController {
 
@@ -338,14 +343,14 @@ public class DataSinglesController {
     }
 
 
-    public String recoveKey(int index) {
+    public String recoveryKey(int index) {
         try {
             Jedis jedis = getCurrentJedisObject();
             if (null != jedis) {
                 FileChooser fileChooser = new FileChooser();
                 File file = fileChooser.showOpenDialog(Desktop.getRootStage());
                 if (null != file) {
-                    RedisUtil.recoveKey(jedis, index, FileUtil.readFileToString(file.toString()));
+                    RedisUtil.recoveryKey(jedis, index, FileUtil.readFileToString(file.toString()));
                     return getOkByJson("还原数据成功");
                 } else {
                     return getNoByJson("取消还原操作");
@@ -357,6 +362,4 @@ public class DataSinglesController {
             return exception(e);
         }
     }
-
-
 }
