@@ -3,6 +3,11 @@ package com.roach.base.bean;
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
+/**
+ * 结果信息类
+ *
+ * @author jdktomcat
+ */
 @Data
 public class ResultInfo {
 

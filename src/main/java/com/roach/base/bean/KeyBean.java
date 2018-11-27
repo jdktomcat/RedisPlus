@@ -2,6 +2,11 @@ package com.roach.base.bean;
 
 import lombok.Data;
 
+/**
+ * 缓存键类
+ *
+ * @author jdktomcat
+ */
 @Data
 public class KeyBean {
 

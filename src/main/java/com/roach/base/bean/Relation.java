@@ -3,6 +3,11 @@ package com.roach.base.bean;
 
 import lombok.Data;
 
+/**
+ * 关系类
+ *
+ * @author jdktomcat
+ */
 @Data
 public class Relation {
 

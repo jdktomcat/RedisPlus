@@ -28,7 +28,7 @@ public class DataSinglesController {
                 List<ZTreeBean> treeList = new ArrayList<>();
                 String role = jedis.info("server");
                 for (int i = 0; i < 16; i++) {
-                    long dbSize = 0l;
+                    long dbSize = 0L;
                     if (i > 0 && role.contains("redis_mode:cluster")) {
                         break;
                     }

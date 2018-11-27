@@ -2,6 +2,11 @@ package com.roach.base.bean;
 
 import lombok.Data;
 
+/**
+ * 客户端信息类
+ *
+ * @author jdktomcat
+ */
 @Data
 public class ClientInfo {
 

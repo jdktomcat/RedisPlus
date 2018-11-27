@@ -2,6 +2,11 @@ package com.roach.base.bean;
 
 import lombok.Data;
 
+/**
+ * redis节点信息类
+ *
+ * @author jdktomcat
+ */
 @Data
 public class RedisNode {
 

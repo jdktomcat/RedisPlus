@@ -3,6 +3,11 @@ package com.roach.base.bean;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+/**
+ * 树状结构信息类
+ *
+ * @author jdktomcat
+ */
 @Data
 public class ZTreeBean {
 
