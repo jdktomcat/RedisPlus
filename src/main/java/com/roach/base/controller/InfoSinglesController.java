@@ -18,6 +18,11 @@ import static com.roach.base.bean.ResultInfo.*;
 import static com.roach.tool.DataUtil.getCurrentJedisObject;
 import static com.roach.tool.RedisUtil.getRedisInfo;
 
+/**
+ * 单点信息控制类
+ *
+ * @author jdktomcat
+ */
 @Component
 public class InfoSinglesController {
 

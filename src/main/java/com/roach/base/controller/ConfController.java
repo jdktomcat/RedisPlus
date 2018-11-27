@@ -11,6 +11,11 @@ import java.util.Map;
 
 import static com.roach.base.bean.ResultInfo.*;
 
+/**
+ * 配置控制类
+ *
+ * @author jdktomcat
+ */
 @Component
 public class ConfController {
 
@@ -26,7 +31,6 @@ public class ConfController {
             return exception(e);
         }
     }
-
 
     public String setConfInfo(String conf) {
         try {

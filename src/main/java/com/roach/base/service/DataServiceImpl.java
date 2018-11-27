@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 数据服务接口实现
+ *
+ * @author jdktomcat
+ */
 @Service
 public class DataServiceImpl implements DataService {
 
@@ -45,6 +50,11 @@ public class DataServiceImpl implements DataService {
     @Override
     public int insertConnect(Connect connect) {
         connect.setId(KeyUtil.getUUIDKey());
+        defaultConnectSetting(connect);
+        return this.dataMapper.insertConnect(connect);
+    }
+
+    private void defaultConnectSetting(Connect connect) {
         connect.setOnssl("0");
         connect.setSpkey("");
         connect.setTime(DateUtil.formatDateTime(new Date()));
@@ -53,19 +63,11 @@ public class DataServiceImpl implements DataService {
         } else {
             connect.setRhost("127.0.0.1");
         }
-        return this.dataMapper.insertConnect(connect);
     }
 
     @Override
     public int updateConnect(Connect connect) {
-        connect.setOnssl("0");
-        connect.setSpkey("");
-        connect.setTime(DateUtil.formatDateTime(new Date()));
-        if ("0".equals(connect.getType())) {
-            connect.setSname("--");
-        } else {
-            connect.setRhost("127.0.0.1");
-        }
+        defaultConnectSetting(connect);
         return this.dataMapper.updateConnect(connect);
     }
 

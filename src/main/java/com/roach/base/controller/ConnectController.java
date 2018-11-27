@@ -23,7 +23,11 @@ import static com.roach.core.desktop.Desktop.setEndsViewTitle;
 import static com.roach.tool.ClusterUtil.getMasterSelf;
 import static com.roach.tool.DataUtil.*;
 
-
+/**
+ * 连接控制层
+ *
+ * @author jdktomcat
+ */
 @Component
 public class ConnectController {
 

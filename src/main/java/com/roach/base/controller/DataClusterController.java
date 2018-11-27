@@ -19,6 +19,11 @@ import java.util.Map;
 
 import static com.roach.base.bean.ResultInfo.*;
 
+/**
+ * 集群数据控制层
+ *
+ * @author jdktomcat
+ */
 @Component
 public class DataClusterController {
 

@@ -16,6 +16,11 @@ import static com.roach.base.bean.ResultInfo.*;
 import static com.roach.tool.DataUtil.getCurrentOpenConnect;
 import static com.roach.tool.ItemUtil.*;
 
+/**
+ * 其他信息控制类
+ *
+ * @author jdktomcat
+ */
 @Component
 public class OtherController {
 
@@ -134,5 +139,4 @@ public class OtherController {
             return exception(e);
         }
     }
-
 }

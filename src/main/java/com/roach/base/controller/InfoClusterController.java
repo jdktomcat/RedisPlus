@@ -17,6 +17,11 @@ import java.util.*;
 
 import static com.roach.tool.RedisUtil.getRedisInfo;
 
+/**
+ * 集群信息控制类
+ *
+ * @author jdktomcat
+ */
 @Component
 public class InfoClusterController {
 
