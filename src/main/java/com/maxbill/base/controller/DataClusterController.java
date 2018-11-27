@@ -43,7 +43,7 @@ public class DataClusterController {
                 List<RedisNode> nodeList = ClusterUtil.getClusterNode(DataUtil.getCurrentOpenConnect());
                 Map<String, RedisNode> masterNode = ClusterUtil.getMasterNode(nodeList);
                 Map<String, JedisPool> clusterNodes = cluster.getClusterNodes();
-                long total = 0l;
+                long total = 0L;
                 for (String nk : clusterNodes.keySet()) {
                     if (masterNode.keySet().contains(nk)) {
                         Jedis jedis = clusterNodes.get(nk).getResource();
@@ -78,7 +78,7 @@ public class DataClusterController {
                 List<RedisNode> nodeList = ClusterUtil.getClusterNode(DataUtil.getCurrentOpenConnect());
                 Map<String, RedisNode> masterNode = ClusterUtil.getMasterNode(nodeList);
                 Map<String, JedisPool> clusterNodes = cluster.getClusterNodes();
-                long total = 0l;
+                long total = 0L;
                 for (String nk : clusterNodes.keySet()) {
                     if (masterNode.keySet().contains(nk)) {
                         Jedis jedis = clusterNodes.get(nk).getResource();
@@ -409,8 +409,7 @@ public class DataClusterController {
         }
     }
 
-
-    public String recoveKey() {
+    public String recoveryKey() {
         try {
             JedisCluster cluster = DataUtil.getJedisClusterObject();
             if (null != cluster) {
@@ -429,6 +428,4 @@ public class DataClusterController {
             return exception(e);
         }
     }
-
-
 }

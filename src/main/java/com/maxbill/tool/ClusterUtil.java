@@ -35,7 +35,7 @@ public class ClusterUtil {
     private static JedisCluster cluster;
 
 
-    public static JedisCluster openCulter(Connect connect) throws Exception {
+    public static JedisCluster openCluster(Connect connect) throws Exception {
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(MAX_TOTAL);
         config.setMaxIdle(MAX_IDLE);
@@ -59,7 +59,7 @@ public class ClusterUtil {
     }
 
 
-    public static void closeCulter() {
+    public static void closeCluster() {
         try {
             if (cluster != null) {
                 cluster.close();
@@ -72,7 +72,7 @@ public class ClusterUtil {
 
     public static JedisCluster getCluster(Connect connect) throws Exception {
         if (null == cluster || cluster.getClusterNodes().size() == 0) {
-            return openCulter(connect);
+            return openCluster(connect);
         } else {
             return cluster;
         }
@@ -143,7 +143,7 @@ public class ClusterUtil {
     }
 
 
-    public static boolean isCulter(Connect connect) {
+    public static boolean isCluster(Connect connect) {
         boolean isCulter = false;
         Jedis jedis = null;
         try {
@@ -302,7 +302,7 @@ public class ClusterUtil {
     /**
      * 还原数据
      */
-    public static void recoveKey(JedisCluster jedisCluster, String jsonStr) {
+    public static void recoveryKey(JedisCluster jedisCluster, String jsonStr) {
         String[] jsons = jsonStr.split("\r\n", -1);
         for (String json : jsons) {
             KeyBean keyBean = JsonUtil.parseKeyBeanObject(json);
@@ -547,7 +547,7 @@ public class ClusterUtil {
         connect.setRport("7001");
         connect.setRhost("127.0.0.1");
         connect.setType("0");
-        openCulter(connect);
+        openCluster(connect);
         testClusterData();
     }
 }
